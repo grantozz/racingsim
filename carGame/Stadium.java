@@ -12,7 +12,7 @@ import javafx.scene.shape.Circle;
 /**
  *
  * @author Grant Osborn
- * the Stadium Class contains the track the Cars
+ * the Stadium Class contains the track the Cars and displays them on the screen
  * 
  */
 public class Stadium extends Pane {
@@ -29,7 +29,7 @@ public class Stadium extends Pane {
         addCars();
     }
     
-    public void addTrack(){
+    public final void addTrack(){
         getChildren().add(carList.get(0).getPath());
     }
     

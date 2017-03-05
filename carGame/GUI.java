@@ -25,7 +25,7 @@ public class GUI extends Application {
     public void makeCars(){
         carList = new ArrayList<>();
         for(int i =0;i<4;i++){
-        carList.add(new Car());
+        carList.add(new Car("test car"));
         } 
     }
     
@@ -43,20 +43,17 @@ public class GUI extends Application {
         RaceInfo raceInfo = new RaceInfo(carList);
         Stadium stadium = new Stadium(carList);
         
-        
+        //borderPane holds the Stadium, RaceInfo and start button
         BorderPane root = new BorderPane();
-        root.setCenter(stadium);
-        
-        HBox hb = new HBox(); 
-        
+        root.setCenter(stadium);        
       
         root.setRight(raceInfo);
-        root.setBottom(hb);
+        
         
         
         Button btn = new Button();
+        root.setBottom(btn);
         btn.setText("start");
-        hb.getChildren().add(btn);
         btn.setOnAction(e->{
             startRace();
         });
@@ -69,6 +66,8 @@ public class GUI extends Application {
         
         primaryStage.setTitle("Race Simulation");
         primaryStage.setScene(scene);
+        // the racetrack(CarPath) can not be moved by a layout manager 
+        //so a min window size is set so that it will never get cut off 
         primaryStage.setMinWidth(640);
         primaryStage.setMinHeight(400);
         primaryStage.show();

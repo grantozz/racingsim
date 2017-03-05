@@ -11,7 +11,7 @@ import javafx.scene.text.TextFlow;
 
 /**
  *
- * @author glot
+ * @author Grant osborn
  * 
  * The RaceInfo Class displays all the information about all the cars in the race
  * 
@@ -27,6 +27,7 @@ public class RaceInfo extends TextFlow {
         init();
         displayPathInfo();
         findWinner().setWinner();
+        // find the car with the longest time and update the gui when they are finished
         findLoser().getPathTransition().setOnFinished(e->displayWinnerInfo());
     }
     
@@ -77,10 +78,15 @@ public class RaceInfo extends TextFlow {
          for(int i = 0; i<4 ;i++){
             Car car = carList.get(i);
             Text t= (Text) this.getChildren().get(i);
-            t.setText("\n\ncar "+ (i+1) + " path is "+car.getPath().toString());
+            t.setText("\n\n"+car.getName() + " path is "+car.getPath().toString());
          }
     }
     
+    
+    /**
+     * Displays the path along with the speed and time of each car 
+     * also shows witch car won
+     */
     public void displayWinnerInfo(){
         for(int i = 0; i<4 ;i++){
             Text t= (Text) this.getChildren().get(i);
@@ -88,13 +94,15 @@ public class RaceInfo extends TextFlow {
         }
     }
     
+    
+    
     private String formatInfo(int num){
         StringBuilder sb = new StringBuilder();
         Car car = carList.get(num);
-        sb.append("\n\ncar ");
-        sb.append(num+1);
+        sb.append("\n\n");
+        sb.append(car.getName());
         sb.append(" path is ");
-        sb.append(car.name);
+        sb.append(car.getPath().toString());
         sb.append("\nspeed: ").append(car.getSpeed()).append(" time: ").append(car.getTime());
         if(car.getWinner()){
             sb.append("\nWinner!");
