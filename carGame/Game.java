@@ -1,5 +1,9 @@
-package carGame;
-
+/**
+ * 
+ * @author Ying Sun
+ * The Game class will allow to add Car and then start the game
+ *
+ */
 public class Game {
 	Car[] cars ;
 	private static int carNumber = 0;
@@ -7,10 +11,12 @@ public class Game {
 		cars = new Car[CarPath.pathNum];
 	}
 	
+	//add car to the cars which holds by the game class.
 	public void addCar(Car car) {
 		cars[carNumber++] = car;
 	}
 	
+	// only start the game if there is and only have 4 cars ready
 	public void go() {
 		if (carNumber != 4) {
 			System.out.println("There is not enough car to run the game");
@@ -24,8 +30,8 @@ public class Game {
 				}
 			}
 			cars[carNumber].setWinner(true);
-			System.out.println(cars[carNumber].getName() + " is winning the game");
+			//This will shows on the GUI
+			System.out.println(cars[carNumber].getName() + " won the game!!!");
 		}
-		
 	}
 }

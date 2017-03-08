@@ -1,5 +1,8 @@
-package carGame;
-
+/**
+ * 
+ * @author Ying Sun
+ * This is a testing class before we have the gui ready
+ */
 public class Testing {
 	public static void main(String[] args) {
 		CarPath carPath = new CarPath();
@@ -12,10 +15,10 @@ public class Testing {
 		game.addCar(car2);
 		game.addCar(car3);
 		game.addCar(car4);
-		System.out.println(car1.getTime());
-		System.out.println(car2.getTime());
-		System.out.println(car3.getTime());
-		System.out.println(car4.getTime());
+		System.out.println("carA: " + car1.getTime() + "s");
+		System.out.println("carB: " + car2.getTime() + "s");
+		System.out.println("carC: " + car3.getTime() + "s");
+		System.out.println("carD: " + car4.getTime() + "s");
 		game.go();
 	}
 }
