@@ -1,16 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package racingsim;
 
 import java.util.ArrayList;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -24,9 +21,12 @@ public class GUI extends Application {
   
     public void makeCars(){
         carList = new ArrayList<>();
-        for(int i =0;i<4;i++){
-        carList.add(new Car("test car"));
-        } 
+        
+        carList.add(new Car("car 1"));
+        carList.add(new Car("car 2"));
+        carList.add(new Car("car 3"));
+        carList.add(new Car("car 4"));
+        
     }
     
     
@@ -45,31 +45,37 @@ public class GUI extends Application {
         
         //borderPane holds the Stadium, RaceInfo and start button
         BorderPane root = new BorderPane();
-        root.setCenter(stadium);        
+        root.setPadding(new Insets(0, 0, 10, 0));
+
+        root.setLeft(stadium);        
       
         root.setRight(raceInfo);
         
         
         
         Button btn = new Button();
+        btn.setPrefSize(100, 45);
+        BorderPane.setAlignment(btn, Pos.CENTER);
         root.setBottom(btn);
+        
         btn.setText("start");
         btn.setOnAction(e->{
             startRace();
+            
         });
        
         
         
         
         
-        Scene scene = new Scene(root, 640, 400);
+        Scene scene = new Scene(root, 640, 460);
         
         primaryStage.setTitle("Race Simulation");
         primaryStage.setScene(scene);
         // the racetrack(CarPath) can not be moved by a layout manager 
         //so a min window size is set so that it will never get cut off 
-        primaryStage.setMinWidth(640);
-        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(scene.getWidth());
+        primaryStage.setMinHeight(scene.getHeight());
         primaryStage.show();
     }
 

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package racingsim;
 
 import java.util.ArrayList;
@@ -25,6 +21,7 @@ public class RaceInfo extends TextFlow {
         super(new Text(),new Text(),new Text(),new Text());
         this.carList = carList;
         init();
+        
         displayPathInfo();
         findWinner().setWinner();
         // find the car with the longest time and update the gui when they are finished
