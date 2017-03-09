@@ -28,6 +28,7 @@ public class Car extends Rectangle{
 		setPt();
 	}
 	
+	//set up path Transition
 	public final void setPt(){
 	    pathTransition.setDuration(Duration.seconds(time));
 	    pathTransition.setPath(carPath);
