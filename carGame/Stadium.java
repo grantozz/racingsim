@@ -13,11 +13,14 @@ import javafx.scene.shape.Circle;
  */
 public class Stadium extends Pane {
     
+    //a reference to the list of cars in the race
+    private final ArrayList<Car> carList;
     
-    
-    ArrayList<Car> carList;
-    
-    
+    /**
+     * Stadium constructor
+     * adds track and cars the the pane when created
+     * @param carList a reference to the list of cars in the race 
+     */
     public Stadium(ArrayList<Car> carList){
         super();
         this.carList=carList;
@@ -37,33 +40,19 @@ public class Stadium extends Pane {
          getChildren().add(c);   
         }
     }
+    
     //draw a small circle at each stop
     private void addStops(){
          Car car= carList.get(0);
          for(Stop s: car.getPath().getStops()){
              addStop(s);
          }
-        
     }
     
     //draw a small circle at the x y position each stop
     private void addStop(Stop stop){
          getChildren().add(new Circle(stop.getX(),stop.getY(), 5));
     }
-    
-    
-    
-    
-    
-    
-  
-    
-    
-    
-    
-   
-    
-    
     
     
 }
