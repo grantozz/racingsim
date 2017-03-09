@@ -11,16 +11,10 @@ public class Stop {
 	private Stop next;
 	private int Distance;
 	
+	//Stop's constructor
 	public Stop(String name, int distance) {
 		this.name = name;
 		this.Distance = distance;
-	}
-	
-	public Stop(String name, int x, int y){
-            // next line is to make sure this method will work with both versions of the project
-            this(name,10000);// replace with this.name=name later 
-            this.x=x;
-            this.y=y;	
 	}
 	
 	//getter and setter
