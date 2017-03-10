@@ -2,6 +2,7 @@
  * 
  * @author Ying Sun
  * Stop class describes that the stop information which includes name, distance etc
+ * 
  */
 public class Stop {
 	private String name;
@@ -12,9 +13,10 @@ public class Stop {
 	private int Distance;
 	
 	//Stop's constructor
-	public Stop(String name, int distance) {
+	public Stop(String name, int x, int y) {
 		this.name = name;
-		this.Distance = distance;
+		this.x = x;
+        	this.y = y;
 	}
 	
 	//getter and setter
