@@ -13,10 +13,11 @@ public class Stop {
 	private int Distance;
 	
 	//Stop's constructor
-	public Stop(String name, int x, int y) {
+	public Stop(String name, int x, int y, int Distance) {
 		this.name = name;
 		this.x = x;
-        	this.y = y;
+        this.y = y;
+        this.Distance = Distance;
 	}
 	
 	//getter and setter
